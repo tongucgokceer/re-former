@@ -1,0 +1,24 @@
+<h3>User Information</h3>
+
+<%= form_for(@user) do |f| %>
+
+    <ul>
+    <% @user.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+    </ul>
+
+  <label>Change Username:</label><br>
+  <%= f.text_field :username %><br>
+
+  <label>Change E-mail:</label><br>
+  <%= f.text_field :email %><br>
+
+  <label>Post description</label><br>
+  <%= f.text_field :password %><br>
+
+  <%= f.submit %>
+<% end %>
+
+
+

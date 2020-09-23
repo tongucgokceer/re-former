@@ -1,0 +1,43 @@
+
+<% if false %>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The form element</h1>
+
+<form accept-charset="UTF-8" action="/users" method="post">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="user[username]"><br><br>
+  <label for="email">E-mail:</label>
+  <input type="text" id="email" name="user[email]"><br><br>
+  <label for="password">Password (6 characters):</label>
+  <input type="text" id="password" name="user[password]"><br><br>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="Submit">
+</form>
+
+<p>Click the "Submit" button and your user will be created!</p>
+
+</body>
+</html>
+<% end %>
+
+<% if false %>
+<%= form_tag("/users", method: :post) do %>
+    <%= label_tag 'user[username]', 'Username:' %>
+    <%= text_field_tag 'user[username]' %>
+    <%= label_tag 'user[email]', 'E-mail:' %>
+    <%= text_field_tag 'user[email]' %>
+    <%= label_tag 'user[password]', 'Password (6 characters):' %>
+    <%= text_field_tag 'user[password]' %>
+    <%= submit_tag "Submit!" %>
+  <% end %>
+<% end %>
+
+<%= form_for @user  do |f| %>
+    Username: <%= f.text_field :username, placeholder: "placeholder text" %><br />
+    E-mail : <%= f.text_field :email, placeholder: "example@example.com" %><br />
+    Password : <%= f.text_field :password %><br />
+    <%= f.submit %>
+  <% end %>
